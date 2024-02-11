@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+enum Status {
+  OK = 0;
+  ERROR = 1;
+}
+
+message RecommendRequest {
+  string user_id = 1;
+
+  string item_id = 2;
+  string item_type = 3;
+  string item_category = 4;
+  double item_price = 5;
+
+  string country = 6;
+}
+
+message RecItem {
+  string item_id = 1;
+  string item_type = 2;
+  string item_category = 3;
+  double item_price = 4;
+  double score = 5;
+}
+
+message RecommendResponse {
+  Status status = 1;
+  repeated RecItem rec_items = 2;
+}
+```
